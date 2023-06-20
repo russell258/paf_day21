@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -13,7 +14,7 @@ import sg.edu.nus.iss.paf_day1.model.Customer;
 
 @Repository
 public class CustomerRepository {
-    //@Autowired
+    @Autowired
     JdbcTemplate jdbcTemplate;
 
     private final String findAllSql="select id, first_name, last_name from customer";

@@ -10,9 +10,11 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
+import org.springframework.stereotype.Repository;
 
 import sg.edu.nus.iss.paf_day1.model.Room;
 
+@Repository
 public class RoomRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;

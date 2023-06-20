@@ -10,6 +10,7 @@ import sg.edu.nus.iss.paf_day1.repository.RoomRepository;
 
 @Service
 public class RoomService {
+
     @Autowired
     RoomRepository rmRepo;
 
