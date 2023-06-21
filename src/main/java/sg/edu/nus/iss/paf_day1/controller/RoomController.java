@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import sg.edu.nus.iss.paf_day1.exception.ResourceNotFoundException;
 import sg.edu.nus.iss.paf_day1.model.Room;
 import sg.edu.nus.iss.paf_day1.service.RoomService;
 
@@ -38,7 +39,7 @@ public class RoomController {
         rooms = rmSvc.findAll();
 
         if (rooms.isEmpty()){
-            return ResponseEntity.notFound().build();
+            throw new ResourceNotFoundException("No Room Record Exist");
             
         }else{
             return ResponseEntity.ok().body(rooms);
@@ -51,7 +52,7 @@ public class RoomController {
         Room room = rmSvc.findById(roomId);
 
         if (room==null){
-            return ResponseEntity.notFound().build();
+            throw new ResourceNotFoundException("Room not found");
         }else{
             return ResponseEntity.ok().body(room);
         }

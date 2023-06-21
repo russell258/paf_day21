@@ -18,8 +18,8 @@ public class CustomerRepository {
     JdbcTemplate jdbcTemplate;
 
     private final String findAllSql="select id, first_name, last_name from customer";
-    private final String findByIdSql= "select * from customer where is = ?";
-    private final String findAllLimitOffsetSql="select * from customer limit? offset";
+    private final String findByIdSql= "select * from customer where id = ?";
+    private final String findAllLimitOffsetSql="select * from customer limit ? offset ?";
 
     public List<Customer> getAllCustomers(){
         List<Customer> customerList = new ArrayList<Customer>();
@@ -55,7 +55,7 @@ public class CustomerRepository {
             Customer customer = new Customer();
             customer.setId(rs.getInt("id"));
             customer.setFirstName(rs.getString("first_name"));
-            customer.setLastName(rs.getNString("last_name"));
+            customer.setLastName(rs.getString("last_name"));
             customerList.add(customer);
         }
         return Collections.unmodifiableList(customerList);
